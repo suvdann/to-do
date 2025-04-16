@@ -1,5 +1,3 @@
-export const Button=()=>{
-    return(
-        <div><button >Add</button></div>
-    )
-}
+export const Button = (props) => {
+  return <button style={{}}>hhh</button>;
+};
