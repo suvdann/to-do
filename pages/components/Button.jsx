@@ -1,3 +1,8 @@
 export const Button = (props) => {
-  return <button style={{}}>hhh</button>;
+  return (<button style={{height:"100%"}}onClick={props.click}>
+ 
+ {props.text}
+  </button>
+ 
+);
 };
