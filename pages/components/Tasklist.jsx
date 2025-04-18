@@ -1,12 +1,11 @@
 import { Button } from "./Button";
-export const Tasklist = (props) => {
+export const Tasklist = ({ taskName, handleDone }) => {
   return (
-
-          <div
+    <div
       style={{
         display: "flex",
         justifyContent: "space-between",
-        backgroundColor: "lightGray",/*#F9FAFB*/
+        backgroundColor: "#F9FAFB" /*#F9FAFB*/,
         padding: "8px",
         borderRadius: "4px",
         gap: "20px",
@@ -19,8 +18,14 @@ export const Tasklist = (props) => {
           gap: "4px",
         }}
       >
-        <input type="checkbox" name="" id="" />
-        <p style={{ fontSize: "12px" }}>{props.taskName}</p>
+        <input
+          type="checkbox"
+          style={{ width: 20, height: 20 }}
+          name=""
+          id=""
+          onChange={handleDone}
+        />
+        <p style={{ fontSize: "12px" }}>{taskName}</p>
       </div>
       <Button
         backgroundColor={"#FEF2F2"}
@@ -29,8 +34,6 @@ export const Tasklist = (props) => {
         color={"#EF4444"}
       />
     </div>
- 
-
   );
 };
 //Task.jsx

@@ -1,8 +1,14 @@
-export const Button = ({ text, backgroundColor, click, color,padding }) => {
+export const Button = ({ text, backgroundColor, click, color, padding }) => {
   return (
     <div style={{}}>
       <button
-        style={{ border:"none", borderRadius: "6px", backgroundColor, color: color,padding:padding }}
+        style={{
+          border: "none",
+          borderRadius: "6px",
+          backgroundColor,
+          color: color,
+          padding: padding,
+        }}
         onClick={click}
       >
         {text}
@@ -10,9 +16,3 @@ export const Button = ({ text, backgroundColor, click, color,padding }) => {
     </div>
   );
 };
-
-// const addNewTask=()=>{
-//   if(value===""){
-//     alert:"please enter task name"
-//   }
-// }
