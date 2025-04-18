@@ -1,11 +1,12 @@
 import { Button } from "./Button";
 export const Tasklist = (props) => {
   return (
-    <div
+
+          <div
       style={{
         display: "flex",
         justifyContent: "space-between",
-        backgroundColor: "lightGray",
+        backgroundColor: "lightGray",/*#F9FAFB*/
         padding: "8px",
         borderRadius: "4px",
         gap: "20px",
@@ -28,6 +29,8 @@ export const Tasklist = (props) => {
         color={"#EF4444"}
       />
     </div>
+ 
+
   );
 };
 //Task.jsx

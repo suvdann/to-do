@@ -1,8 +1,8 @@
-export const Button = ({ text, backgroundColor, click, color }) => {
+export const Button = ({ text, backgroundColor, click, color,padding }) => {
   return (
     <div style={{}}>
       <button
-        style={{ borderRadius: "6px", backgroundColor, color: color }}
+        style={{ border:"none", borderRadius: "6px", backgroundColor, color: color,padding:padding }}
         onClick={click}
       >
         {text}

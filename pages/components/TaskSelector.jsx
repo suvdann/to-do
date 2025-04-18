@@ -1,7 +1,7 @@
 import { Button } from "./Button";
 export const TaskSelector = () => {
   return (
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", gap:"6px" }}>
       <Button
         backgroundColor={"#3C82F6"}
         padding={"8px"}

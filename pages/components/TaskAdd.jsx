@@ -12,14 +12,14 @@ export const TaskAdd = ({ task, setTask, setBugd }) => {
       style={{
         display: "flex",
         justifyContent: "center",
-        padding: "8px 16px 8px 16px ",
+        // padding: "8px 16px 8px 16px ",
         gap: "6px",
         borderRadius: "6px",
-        width: "280px",
+        
       }}
     >
       <input
-        style={{ width: "280px" }}
+        style={{padding:"8px ", width:"280px" }}
         type="text"
         placeholder="Add a new task..."
         value={task}
@@ -28,7 +28,7 @@ export const TaskAdd = ({ task, setTask, setBugd }) => {
       <div style={{}}>
         <Button
           backgroundColor={"#3C82F6"}
-          padding={"8px"}
+          padding={" 16px"}
           // color={""}
           text="Add"
           click={clickHandler}
