@@ -1,18 +1,22 @@
-export const Button = ({ text, backgroundColor, click, color, padding }) => {
+export const Button = (props ) => {
+  const {text, onClick, aliButtonDaragdsanbe} = props;
   return (
-    <div style={{}}>
+  
       <button
         style={{
+          height:"100%",
           border: "none",
           borderRadius: "6px",
-          backgroundColor,
-          color: color,
-          padding: padding,
+        padding:"8px",
+          backgroundColor:
+           text === aliButtonDaragdsanbe || text==="Add"
+           ? "#3C82F6" 
+           : "#f3f4f6",
         }}
-        onClick={click}
+        onClick={onClick}
       >
         {text}
       </button>
-    </div>
+ 
   );
 };

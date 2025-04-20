@@ -1,5 +1,26 @@
 import { Button } from "./Button";
-export const Tasklist = ({ taskName, handleDone }) => {
+export const Tasklist = (props) => {
+  const checkboxClick=()=>{
+ props.setBugd((prev)=>{
+return prev.map(el=>{
+        if(el.id===props.id){
+          return{...el, taskChecked: !el.taskChecked}
+     }else{
+      return el
+     }
+     });
+    });
+  };
+
+  const deleteHandler=()=>{
+    props.setBugd((prev)=>{
+      return prev.filter((el)=>{
+              if(el.id!=props.id){
+                return true
+              }
+            });
+          });
+        }
   return (
     <div
       style={{
@@ -21,17 +42,16 @@ export const Tasklist = ({ taskName, handleDone }) => {
         <input
           type="checkbox"
           style={{ width: 20, height: 20 }}
-          name=""
-          id=""
-          onChange={handleDone}
+        checked={props.taskChecked}
+          onChange={checkboxClick}
         />
-        <p style={{ fontSize: "12px" }}>{taskName}</p>
+        <p style={{ fontSize: "12px" }}>{props.taskName}</p>
       </div>
       <Button
-        backgroundColor={"#FEF2F2"}
-        padding="6px"
-        text="Delete"
-        color={"#EF4444"}
+       text="Delete"
+       
+       onClick={deleteHandler}
+
       />
     </div>
   );
