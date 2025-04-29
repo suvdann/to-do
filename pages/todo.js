@@ -7,72 +7,52 @@ import { ActionButtons } from "./components/ActionButtons";
 const Todo = () => {
   const [task, setTask] = useState("");
   const [bugd, setBugd] = useState([]);
-  const [ whichButtonClicked, setWhichButtonClicked]=useState("");
-  
-   //  clearCompletedHandler
-   const clearCompletedHandler = () => {
+  const [whichButtonClicked, setWhichButtonClicked] = useState("All");
+
+  const clearCompletedHandler = () => {
     setBugd((prev) => prev.filter((el) => !el.taskChecked));
   };
 
-  //  filter logic-ийг нэг function-д оруулсан
-  const filteredTasks = () => {
-    if (whichButtonClicked === "Completed") {
-      return bugd.filter((el) => el.taskChecked);
-    } else if (whichButtonClicked === "Active") {
-      return bugd.filter((el) => !el.taskChecked);
-    } else {
-      return bugd;
-    }
+  const filterTasks = () => {
+    if (whichButtonClicked === "All") return bugd;
+    if (whichButtonClicked === "Active") return bugd.filter((el) => !el.taskChecked);
+    if (whichButtonClicked === "Completed") return bugd.filter((el) => el.taskChecked);
+    return bugd;
   };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        marginTop: "40px",
-      }}
-    >
+    <div style={{ display: "flex", justifyContent: "center", marginTop: "40px" }}>
       <div
         style={{
-         width:"377px",
-         display:"flex",
-         flexDirection:"column",
+          width: "377px",
+          display: "flex",
+          flexDirection: "column",
           boxShadow: "5px 5px 5px 5px #00000029",
           padding: "16px",
           borderRadius: "6px",
           gap: "20px",
         }}
       >
-        {/* {JSON.stringify(bugd)} */}
         <h1 style={{ textAlign: "center" }}>To-Do list</h1>
         <div style={{ padding: "10px" }}>
           <TaskAdd task={task} setTask={setTask} setBugd={setBugd} />
         </div>
+
         <ActionButtons setWhichButtonClicked={setWhichButtonClicked} />
 
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "20px",
-            // width: "345px",
-          }}
-        >
-          {bugd.map((el, index) => {
-            return (
-              <Tasklist
-                key={index}
-                taskName={el.taskName}
-                taskChecked={el.task}
-                setBugd={setBugd}
-                id={el.id}
-              />
-            );
-          })}
-         
+        <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+          {filterTasks().map((el, index) => (
+            <Tasklist
+              key={index}
+              taskName={el.taskName}
+              taskChecked={el.taskChecked}
+              setBugd={setBugd}
+              id={el.id}
+            />
+          ))}
+
           <p style={{ margin: 0 }}>
-            {bugd.filter((el) => el.taskChecked).length} of {bugd.length} tasks
-            completed
+            {bugd.filter((el) => el.taskChecked).length} of {bugd.length} tasks completed
           </p>
 
           <Button
@@ -85,4 +65,5 @@ const Todo = () => {
     </div>
   );
 };
+
 export default Todo;
